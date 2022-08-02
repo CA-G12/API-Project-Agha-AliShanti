@@ -38,3 +38,22 @@ function generateReposDom(user, container) {
     });
   });
 }
+function generateUserDom(user, container) {
+  container.innerHTML = ``;
+  console.log(user);
+  container.innerHTML += `
+    
+    <div class="userImg"><img src="${user.avatar_url}" alt=""></div>
+    <div class="userName">${user.name || user.login}</div>
+    
+    <div class="userInfo">
+    <div class="userBio">${user.bio}</div>
+    <div class="userfol">
+              <div class="foling">Followers: ${user.following}</div>
+              <div class="fols">Following: ${user.followers}</div>
+    </div>
+    <div class="userEmail">${user.email}</div>
+    <div class="userLoc">${user.location}</div></div>
+    
+        `;
+}
