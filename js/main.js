@@ -16,3 +16,25 @@ function fetch(url, cb) {
   );
   xhr.send();
 }
+
+function generateReposDom(user, container) {
+  container.innerHTML = ``;
+  fetch(user.repos_url, (repos) => {
+    repos.forEach((repo) => {
+      container.innerHTML += `
+          <div class="repo">
+              <div class="repoName"> ${repo.name}</div>
+              <div class="repoStars"><i class="fa-solid fa-star"></i>  ${
+                repo.stargazers_count
+              }</div>
+              <div class="repoLangs"><i class="fa-solid fa-code"></i> ${
+                repo.language
+              }</div>
+              <div class="repoDate"> <i class="fa-solid fa-calendar-days"> </i> ${new Date(
+                repo.updated_at
+              ).toLocaleDateString()}</div>
+          </div>
+          `;
+    });
+  });
+}
