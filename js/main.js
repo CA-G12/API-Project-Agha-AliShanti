@@ -1,10 +1,9 @@
-
-function fetch(url, cb,container) {
+function fetch(url, cb, container) {
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
-        cb(JSON.parse(xhr.responseText),container);
+        cb(JSON.parse(xhr.responseText), container);
       } else {
         console.log("Error " + xhr.status);
       }
@@ -13,11 +12,11 @@ function fetch(url, cb,container) {
   xhr.open("GEt", url, true);
   xhr.setRequestHeader(
     "Authorization",
-    "token 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"
+    "token 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"
   );
   xhr.send();
 }
-function generateUserDom(user,container) {
+function generateUserDom(user, container) {
   container.innerHTML = ``;
   console.log(user);
   container.innerHTML += `
@@ -36,7 +35,7 @@ function generateUserDom(user,container) {
   
       `;
 }
-function generateReposDom(repos,container) {
+function generateReposDom(repos, container) {
   container.innerHTML = ``;
   repos.forEach((repo) => {
     container.innerHTML += `
@@ -55,4 +54,3 @@ function generateReposDom(repos,container) {
       `;
   });
 }
-
