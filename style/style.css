@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color: #001d3d;
     color: #fff;
@@ -84,6 +87,20 @@ body{
 .serch button:hover i{
     
     transform: scale(1.4);
+}
+.container .quotes{
+    text-align: center;
+}
+.container .quotes p{
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 52px;
+    font-family: cursive;
+    font-style: italic;
+
+}
+.container .quotes span{
+    font-family: cursive;
 }
 .repoName{
     width: 100%;
