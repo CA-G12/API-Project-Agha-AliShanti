@@ -3,16 +3,17 @@ function fetch(url, cb, container) {
   xhr.onreadystatechange = () => {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
+        clearImg();
         cb(JSON.parse(xhr.responseText), container);
       } else {
-        console.log("Error " + xhr.status);
+        generateGiphDom(xhr.status);
       }
     }
   };
   xhr.open("GEt", url, true);
   xhr.setRequestHeader(
     "Authorization",
-    "token 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"
+    "token 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"
   );
   xhr.send();
 }
@@ -56,7 +57,7 @@ function generateReposDom(repos, container) {
     });
   } else {
     fetch(
-      "https://api.giphy.com/v1/gifs/search?q=kitchen-looney-tunes-empty&api_key=TLbbBcJE8n7CLqs4EvB5Uo342SwEcFYI",
+      "https://api.giphy.com/v1/gifs/search?q=kitchen-looney-tunes-empty&api_key=ka3PElHCT3EJD8RcDg4aFbLjzXZDtoVy",
       generateEmptyRepoDom,
       container
     );
@@ -77,4 +78,17 @@ function getRandomIndex(data) {
   let len = data.length - 1;
   let index = Math.floor(Math.random() * len);
   return index;
+}
+
+function clearImg() {
+  let cont = document.querySelector(".giph");
+  cont.innerHTML = ``;
+}
+
+function generateGiphDom(data) {
+  console.log(data);
+  let cont = document.querySelector(".giph");
+  cont.innerHTML = `
+  <img src='https://http.cat/${data}'>
+  `;
 }

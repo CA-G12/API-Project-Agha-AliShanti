@@ -164,3 +164,11 @@ body{
     align-items: center;
     gap: 1rem;
 }
+.giph{
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+}
+.giph img{
+    width: 400px;
+}
