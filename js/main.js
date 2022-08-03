@@ -4,7 +4,6 @@ function fetch(url, cb, container) {
     if (xhr.readyState == 4) {
       if (xhr.status == 200) {
         cb(JSON.parse(xhr.responseText), container);
-        
       } else {
         console.log("Error " + xhr.status);
       }
@@ -26,13 +25,13 @@ function generateUserDom(user, container) {
   <div class="userName">${user.name || user.login}</div>
   
   <div class="userInfo">
-  <div class="userBio">${user.bio ||'No Bio'}</div>
+  <div class="userBio">${user.bio || "No Bio"}</div>
   <div class="userfol">
             <div class="foling">Followers: ${user.following}</div>
             <div class="fols">Following: ${user.followers}</div>
   </div>
-  <div class="userEmail">${user.email || 'No Email'}</div>
-  <div class="userLoc">${user.location || 'No location'}</div></div>
+  <div class="userEmail">${user.email || "No Email"}</div>
+  <div class="userLoc">${user.location || "No location"}</div></div>
   
       `;
 }
@@ -62,9 +61,15 @@ function generateReposDom(repos, container) {
       container
     );
   }
-  window.scrollTo(0, 500)
+  window.scrollTo(0, 500);
 }
 function generateEmptyRepoDom(data, container) {
   let url = data.data[0].images.downsized_medium.url;
   container.innerHTML = `<img src='${url}'>`;
+}
+function generateQuotes(data, container) {
+  console.log(data);
+  container.innerHTML = `       
+   <p>"${data[0].text}"</p>
+  <span>${data[0].author}</span>`;
 }
