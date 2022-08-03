@@ -194,3 +194,11 @@ transform: scale(1.2);
 .giph img{
     width: 400px;
 }
+@media (max-width:600px) {
+    .serch input{
+        width: 320px;
+    }
+    .serch{
+        display: flex;
+    }
+}
