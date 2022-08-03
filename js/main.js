@@ -13,7 +13,7 @@ function fetch(url, cb, container) {
   xhr.open("GEt", url, true);
   xhr.setRequestHeader(
     "Authorization",
-    "token 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"
+    "token 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"
   );
   xhr.send();
 }
@@ -32,14 +32,18 @@ function generateUserDom(user, container) {
             <div class="fols">Following: ${user.followers}</div>
   </div>
   <div class="userEmail">${user.email || "No Email"}</div>
-  <div class="userLoc">${user.location || "No location"}</div></div>
+  <div class="userLoc">${user.location || "No location"}</div>
+  <div class="starCount">total stars: <span></span></div>
+  </div>
   
       `;
 }
 function generateReposDom(repos, container) {
+  sum = 0;
   if (repos.length > 0) {
     container.innerHTML = ``;
     repos.forEach((repo) => {
+      sum += repo.stargazers_count;
       container.innerHTML += `
         <div class="repo">
             <div class="repoName"> ${repo.name}</div>
@@ -55,6 +59,7 @@ function generateReposDom(repos, container) {
         </div>
         `;
     });
+    document.querySelector(".starCount span").innerHTML = sum;
   } else {
     fetch(
       "https://api.giphy.com/v1/gifs/search?q=kitchen-looney-tunes-empty&api_key=ka3PElHCT3EJD8RcDg4aFbLjzXZDtoVy",
