@@ -54,6 +54,13 @@ body{
 -webkit-box-shadow: 0px 3px 29px 3px rgba(0,0,0,0.6);
 -moz-box-shadow: 0px 3px 29px 3px rgba(0,0,0,0.6);
 }
+.repo.active:first-child{
+    background-color: #ffd60a !important;
+    color: #001d3d !important;
+}
+.repo.active:first-child .repoName{
+    border-color: #001d3d;
+}
 .serch{
     width: 100%;
     display: flex;

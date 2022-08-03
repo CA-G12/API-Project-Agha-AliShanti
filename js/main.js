@@ -13,7 +13,7 @@ function fetch(url, cb, container) {
   xhr.open("GEt", url, true);
   xhr.setRequestHeader(
     "Authorization",
-    "token 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"
+    "token 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"
   );
   xhr.send();
 }
@@ -48,7 +48,6 @@ function generateReposDom(repos, container) {
     }
     return 0;
   });
-
   sum = 0;
   if (repos.length > 0) {
     container.innerHTML = ``;
@@ -78,6 +77,9 @@ function generateReposDom(repos, container) {
     );
   }
   window.scrollTo(0, 500);
+  if (sortingRepos[0].stargazers_count > 0) {
+    document.querySelector(".repo:first-child").classList.add("active");
+  }
 }
 function generateEmptyRepoDom(data, container) {
   let url = data.data[0].images.downsized_medium.url;
