@@ -132,10 +132,16 @@ body{
     border-radius: 50%;
     margin: 0 auto;
     width: 300px;
+    overflow: hidden;
 }
 .userImg img{
     width: 100%;
     border-radius: 50%;
+    transition: 0.3s all linear;
+
+}
+.userImg img:hover{
+transform: scale(1.2);
 }
 .content{
     width: 100%;
@@ -149,6 +155,15 @@ body{
     width: 100%;
     text-align: center;
     font-size: 300px;
+    animation: logoStyle 1s  backwards ;
+}
+@keyframes logoStyle {
+    from{
+        transform: translateY(-900px);
+    }
+    to{
+        transform: translateY(0);
+    }
 }
 .userfol{
     display: flex;
