@@ -12,7 +12,7 @@ function fetch(url, cb, container) {
   xhr.open("GEt", url, true);
   xhr.setRequestHeader(
     "Authorization",
-    "token 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"
+    "token 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"
   );
   xhr.send();
 }
@@ -70,6 +70,11 @@ function generateEmptyRepoDom(data, container) {
 function generateQuotes(data, container) {
   console.log(data);
   container.innerHTML = `       
-   <p>"${data[0].text}"</p>
-  <span>${data[0].author}</span>`;
+   <p>"${data[getRandomIndex(data)].text}"</p>
+  <span>${data[getRandomIndex(data)].author}</span>`;
+}
+function getRandomIndex(data) {
+  let len = data.length - 1;
+  let index = Math.floor(Math.random() * len);
+  return index;
 }
