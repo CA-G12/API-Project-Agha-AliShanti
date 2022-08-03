@@ -13,7 +13,7 @@ function fetch(url, cb, container) {
   xhr.open("GEt", url, true);
   xhr.setRequestHeader(
     "Authorization",
-    "token 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"
+    "token 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"
   );
   xhr.send();
 }
@@ -39,10 +39,20 @@ function generateUserDom(user, container) {
       `;
 }
 function generateReposDom(repos, container) {
+  let sortingRepos = repos.sort(function (x, y) {
+    if (y.stargazers_count < x.stargazers_count) {
+      return -1;
+    }
+    if (y.stargazers_count < x.stargazers_count) {
+      return 1;
+    }
+    return 0;
+  });
+
   sum = 0;
   if (repos.length > 0) {
     container.innerHTML = ``;
-    repos.forEach((repo) => {
+    sortingRepos.forEach((repo) => {
       sum += repo.stargazers_count;
       container.innerHTML += `
         <div class="repo">
