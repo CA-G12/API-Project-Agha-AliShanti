@@ -54,7 +54,8 @@ function generateReposDom(repos, container) {
     sortingRepos.forEach((repo) => {
       sum += repo.stargazers_count;
       container.innerHTML += `
-        <div class="repo">
+      <a href="${repo.clone_url}" target="_blank">
+      <div class="repo">
             <div class="repoName"> ${repo.name}</div>
             <div class="repoStars"><i class="fa-solid fa-star"></i>  ${
               repo.stargazers_count
@@ -65,7 +66,7 @@ function generateReposDom(repos, container) {
             <div class="repoDate"> <i class="fa-solid fa-calendar-days"> </i> ${new Date(
               repo.updated_at
             ).toLocaleDateString()}</div>
-        </div>
+        </div></a>
         `;
     });
     document.querySelector(".starCount span").innerHTML = sum;
